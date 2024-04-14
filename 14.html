@@ -1,0 +1,13 @@
+<!--.tsファイル-->
+else if (req.url === '/reading') {
+    // ステータスが2のタスクのみをクエリ
+    const q = query(collection(db, 'tasks'), where('status', '==', 2));
+    tasksSnapshot = await getDocs(q);
+  }
+  <!--HTTPリクエストが '/reading' というURLに対して送信された場合に実行される処理を示す
+  データベース内の 'tasks' コレクションからステータスが2のタスクのみをクエリして取得している。
+  これはFirestoreのquery関数を使用して、特定の条件に一致するドキュメントを取得するためのクエリを作成する
+  where 関数を使用してステータスが2であるかどうかを条件として指定-->
+
+  <!--作成したクエリを使用して getDocs 関数を呼び出し、実際にクエリを実行し、結果を取得。
+    これにより、ステータスが2であるタスクのデータが取得されtasksSnapshot変数に格納される。-->
